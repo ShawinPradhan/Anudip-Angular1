@@ -1,0 +1,58 @@
+<h1 class="text-center">Reactive Forms Module</h1>
+<div class="container" >
+    <div class="col-md-7" style="margin-left: 20%;">
+        <h3 class="text-center"><u>Register Form</u></h3>
+
+        <form [formGroup]="form">
+            <div class="form-group">
+                <label for="firstName">Full Name: <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" formControlName="full">
+                <div *ngIf="f['full'].touched && f['full'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['full'].errors && f['full'].errors['required']">Full Name is required**</div>
+                    <div *ngIf="f['full'].errors && f['full'].errors['minlength']">Min. Length must be 3 characters**</div>
+                </div>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="email">Email: <span style="color: red;">*</span></label>
+                <input type="email" class="form-control" formControlName="email">
+                <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required**</div>
+                    <div *ngIf="f['email'].errors && f['email'].errors['email']">Please enter a valid email**</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact Number: <span style="color: red;">*</span></label>
+                <input type="tel" class="form-control" formControlName="contact">
+                <div *ngIf="f['contact'].touched && f['contact'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['contact'].errors && f['contact'].errors['required']">Contact is required**</div>
+                    <div *ngIf="f['contact'].errors && f['contact'].errors['pattern']">Please enter a valid contact number**</div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="form-group col-md-6">
+                <label for="userName">User Name: <span style="color: red;">*</span></label>
+                <input type="text" class="form-control" formControlName="user">
+                <div *ngIf="f['user'].touched && f['user'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['user'].errors && f['user'].errors['required']">User Name is required**</div>
+                    <div *ngIf="f['user'].errors && f['user'].errors['minlength']">Min. length must be 4 characters**</div>
+                </div>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="password">Password: <span style="color: red;">*</span></label>
+                <input type="password" class="form-control" formControlName="pass">
+                <div *ngIf="f['pass'].touched && f['pass'].invalid" class="alert alert-danger">
+                    <div *ngIf="f['pass'].errors && f['pass'].errors['required']">Password is required**</div>
+                    <div *ngIf="f['pass'].errors && f['pass'].errors['minlength']">Min. length must be 6 characters**</div>
+                </div>
+            </div>
+            </div>
+            <button [disabled]="form.invalid" class="btn btn-success" type="submit" >Submit</button>
+        </form>
+
+        
+
+    </div>
+
+</div>
